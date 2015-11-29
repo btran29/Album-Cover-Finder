@@ -1,3 +1,4 @@
+# Ver 11-29-15
 # albumCoverFinder - Brian Tran, btran29@gmail.com
 
 # This program scans a tree of directories containing mp3 files. For
