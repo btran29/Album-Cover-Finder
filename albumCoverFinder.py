@@ -5,7 +5,6 @@
 # Apple iTunes service. Subdirectories must be named <Artist>/<Album>
 # contain .mp3 files to be considered. The cover will be saved to
 # "cover.jpg" in each directory.
-# If the cover file already exists, the directory is skipped.
 
 # Usage example:
 # albumCoverFinder.py <music directory>
@@ -138,16 +137,23 @@ def main(argv):
     # Travel through directories
     for directory in directories:
         files = os.listdir(directory)
-        found = False
         for file in files:
-            # Mark directories with mp3 files
+            # TODO: skip directories with cover.jpg already present
+            # Only directories with mp3 files
             if file.endswith('.mp3'):
-                found = True
+                # Get album art for this directory
+                get_art(directory)
                 break
-        if not found:
-            continue
-        # Get album art for this directory
-        get_art(directory)
+
+    # TODO: try out os.walk
+    # for root, dirs, files in os.walk(source_directory):
+    #     for directory in dirs:
+    #         # for file in files:
+    #         #     if file.endswith(".mp3"):
+    #         #         # y
+    #         # Get album art for this directory
+    #         get_art(directory)
+
 
 # Limits this python file to script functionality (vs a module)
 if __name__ == "__main__":
