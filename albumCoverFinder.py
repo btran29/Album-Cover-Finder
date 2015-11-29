@@ -109,7 +109,7 @@ def get_art(directory):
         # Copy file to location
         shutil.copyfile(dl_art, final_path)
         os.remove(dl_art)
-        print("Saved: " + final_path)
+        print("Saved to: " + final_path)
 
 
 # Define usage
