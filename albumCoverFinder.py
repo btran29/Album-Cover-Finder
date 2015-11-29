@@ -37,6 +37,8 @@ cleanup_table = {
 # Clean up album folder names for input
 def clean_input(term):
     print("\n" + "Search Term: " + "\"" + term + "\"")
+    # Replaces strings in folder names with keywords
+    # in cleanup_table
     pattern = re.compile('|'.join(cleanup_table.keys()))
     term = pattern.sub(lambda x: cleanup_table[x.group()], term)
     return term
