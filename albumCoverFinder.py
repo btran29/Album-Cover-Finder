@@ -149,15 +149,6 @@ def main(argv):
                 get_art(directory)
                 break
 
-    # TODO: try out os.walk
-    # for root, dirs, files in os.walk(source_directory):
-    #     for directory in dirs:
-    #         # for file in files:
-    #         #     if file.endswith(".mp3"):
-    #         #         # y
-    #         # Get album art for this directory
-    #         get_art(directory)
-
 
 # Limits this python file to script functionality (vs a module)
 if __name__ == "__main__":
