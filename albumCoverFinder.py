@@ -67,11 +67,11 @@ def collect_data(url):
 # Parse data to get album cover url
 def parse_data(data, artist):
     data = data['results']
-    
+
     # Initialize key vars
     found = False
     album_art_url = 'stringThing'
-    
+
     # Loop over results to find matching artist given album
     for result in data:
         if result['artistName'] == artist:
@@ -141,10 +141,15 @@ def main(argv):
     # Travel through directories
     for directory in directories:
         files = os.listdir(directory)
+        found = False
         for file in files:
-            # TODO: skip directories with cover.jpg already present
+            # Mark to skip if cover is already present
+            if file.endswith('cover.jpg'):
+                found = True
+                continue
+        for file in files:
             # Only directories with mp3 files
-            if file.endswith('.mp3'):
+            if file.endswith('.mp3') & found is False:
                 # Get album art for this directory
                 get_art(directory)
                 break
