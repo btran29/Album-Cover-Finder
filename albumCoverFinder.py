@@ -155,6 +155,5 @@ def main(argv):
                 break
 
 
-# Limits this python file to script functionality (vs a module)
-if __name__ == "__main__":
-    main(sys.argv)
+# Run script
+main(sys.argv)
