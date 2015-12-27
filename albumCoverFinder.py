@@ -13,25 +13,17 @@
 
 import sys
 import os
-import shutil
 import re
 import urllib.request
 import json
 import tempfile
+import shutil
 
-# For testing + possible future expansion with classes
+# Default values for url search string
 defaults = {
-    "artist":       'Jack Johnson',
-    "album":        'In Between Dreams',
-    "country":      'US',
     "media":        'music',
     "attribute":    'albumTerm',
     "base":         'https://itunes.apple.com/search?'
-}
-
-# Clean up album names via dictionary below
-cleanup_table = {
-    ' ':    '+'
 }
 
 
@@ -40,6 +32,7 @@ def clean_input(term):
     print("\n" + "Search Term: " + "\"" + term + "\"")
     # Replaces strings in folder names with keywords
     # in cleanup_table via regex
+    cleanup_table = {' ':    '+'}
     pattern = re.compile('|'.join(cleanup_table.keys()))
     term = pattern.sub(lambda x: cleanup_table[x.group()], term)
     return term
@@ -155,5 +148,5 @@ def main(argv):
                 break
 
 
-# Run script
+# Run program
 main(sys.argv)
