@@ -82,9 +82,8 @@ def download(album_art_url):
     img = urllib.request.urlopen(album_art_url)
     output = tempfile.mktemp(".jpg")
     # Enable writing
-    o = open(output, "wb")
-    o.write(img.read())
-    o.close()
+    with open(output, "wb") as o:
+        o.write(img.read())
     return output
 
 
